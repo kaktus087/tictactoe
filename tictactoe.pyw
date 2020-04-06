@@ -18,49 +18,45 @@ cross_ = PhotoImage(file='cross.png')
 i = 0 # кол-во ходов
 a = 0 #переменная, определяющая, рисовать крестик или кружок
 
+p1 = '1'
+p2 = '2'
+p3 = '3'
+p4 = '4'
+p5 = '5'
+p6 = '6'
+p7 = '7'
+p8 = '8'
+p9 = '9'
 
-p1 = ''
-p2 = ''
-p3 = ''
-p4 = ''
-p5 = ''
-p6 = ''
-p7 = ''
-p8 = ''
-p9 = ''
-
-
+label_cross = ''
+label_circle = ''
 
 def check():
-	global i
+	global i, label_cross, label_circle
 	i += 1
-	if ((p1 == 'o' and p2 == 'o' and p3 == 'o')
-	or(p4 == 'o' and p5 == 'o' and p6 == 'o')
-	or (p7 == 'o' and p8 == 'o' and p9 == 'o')
-	or (p1 == 'o' and p4 == 'o' and p7 == 'o')
-	or (p2 == 'o' and p5 == 'o' and p8 == 'o')
-	or (p3 == 'o' and p6 == 'o' and p9 == 'o')
-	or (p1 == 'o' and p5 == 'o' and p9 == 'o')
-	or (p3 == 'o' and p5 == 'o' and p7 == 'o')
+	if ((p1 == p2 == p3)
+	or (p4 == p5 == p6)
+	or (p7 == p8 == p9)
+	or (p1 == p4 == p7)
+	or (p2 == p5 == p8)
+	or (p3 == p6 == p9)
+	or (p1 == p5 == p9)
+	or (p3 == p5 == p7)
 	):
-		messagebox.showinfo("Win", 'Нолики победили')
-		sys.exit()
-	elif ((p1 == 'x' and p2 == 'x' and p3 == 'x')
-	or(p4 == 'x' and p5 == 'x' and p6 == 'x')
-	or (p7 == 'x' and p8 == 'x' and p9 == 'x')
-	or (p1 == 'x' and p4 == 'x' and p7 == 'x')
-	or (p2 == 'x' and p5 == 'x' and p8 == 'x')
-	or (p3 == 'x' and p6 == 'x' and p9 == 'x')
-	or (p1 == 'x' and p5 == 'x' and p9 == 'x')
-	or (p3 == 'x' and p5 == 'x' and p7 == 'x')
-	):
-		messagebox.showinfo("Win", 'Крестики победили')
-		sys.exit()		
+		if label_cross != '':
+			messagebox.showinfo("Win", "Крестики победили")
+			sys.exit()	
+		else:
+			messagebox.showinfo("Win", "Нолики победили")
+			sys.exit()	
 	elif i == 9:
 		messagebox.showinfo("", 'Ничья')
-		sys.exit()				
+		sys.exit()
+	else:
+		label_circle = ''
+		label_cross = ''
 def number_ (number):
-	global a, p1, p2, p3, p4, p5, p6, p7, p8, p9
+	global a, p1, p2, p3, p4, p5, p6, p7, p8, p9, label_circle, label_cross
 	a += 1
 	if number == "1":
 		button_1.destroy()
