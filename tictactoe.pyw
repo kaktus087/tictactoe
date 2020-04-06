@@ -17,172 +17,159 @@ cross_ = PhotoImage(file='cross.png')
 
 i = 0 # кол-во ходов
 a = 0 #переменная, определяющая, рисовать крестик или кружок
-# вариации победы
-var_1, var_2, var_3, var_4, var_5, var_6, var_7, var_8, var_9, var_10, var_11, var_12, var_13, var_14, var_15, var_16 = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+
+
+p1 = ''
+p2 = ''
+p3 = ''
+p4 = ''
+p5 = ''
+p6 = ''
+p7 = ''
+p8 = ''
+p9 = ''
+
+
 
 def check():
 	global i
 	i += 1
-	if var_1 == 3 or var_2 == 3 or var_3 == 3 or var_4 == 3 or var_5 == 3 or var_6 == 3 or var_7 == 3 or var_8 == 3:
-		messagebox.showinfo("Win", "Нолики победили!")
+	if ((p1 == 'o' and p2 == 'o' and p3 == 'o')
+	or(p4 == 'o' and p5 == 'o' and p6 == 'o')
+	or (p7 == 'o' and p8 == 'o' and p9 == 'o')
+	or (p1 == 'o' and p4 == 'o' and p7 == 'o')
+	or (p2 == 'o' and p5 == 'o' and p8 == 'o')
+	or (p3 == 'o' and p6 == 'o' and p9 == 'o')
+	or (p1 == 'o' and p5 == 'o' and p9 == 'o')
+	or (p3 == 'o' and p5 == 'o' and p7 == 'o')
+	):
+		messagebox.showinfo("Win", 'Нолики победили')
 		sys.exit()
-	elif var_9 == 3 or var_10 == 3 or var_11 == 3 or var_12 == 3 or var_13 == 3 or var_14 == 3 or var_15 == 3 or var_16 == 3:
-		messagebox.showinfo("Win", "Крестики победили!")
-		sys.exit()
+	elif ((p1 == 'x' and p2 == 'x' and p3 == 'x')
+	or(p4 == 'x' and p5 == 'x' and p6 == 'x')
+	or (p7 == 'x' and p8 == 'x' and p9 == 'x')
+	or (p1 == 'x' and p4 == 'x' and p7 == 'x')
+	or (p2 == 'x' and p5 == 'x' and p8 == 'x')
+	or (p3 == 'x' and p6 == 'x' and p9 == 'x')
+	or (p1 == 'x' and p5 == 'x' and p9 == 'x')
+	or (p3 == 'x' and p5 == 'x' and p7 == 'x')
+	):
+		messagebox.showinfo("Win", 'Крестики победили')
+		sys.exit()		
 	elif i == 9:
-		messagebox.showinfo("standoff", "Ничья!")
-		sys.exit()
-
+		messagebox.showinfo("", 'Ничья')
+		sys.exit()				
 def number_ (number):
-	global a, my_canvas, var_1, var_2, var_3, var_4, var_5, var_6, var_7, var_8, var_9, var_10, var_11, var_12, var_13, var_14, var_15, var_16, button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9 
+	global a, p1, p2, p3, p4, p5, p6, p7, p8, p9
 	a += 1
 	if number == "1":
 		button_1.destroy()
-		button_1 = ''
 		if a % 2 == 0:
 			label_circle = Label(image=circle_, bg="white")
 			label_circle.place(x=0, y=0)
-			var_1 += 1
-			var_4 += 1
-			var_7 += 1
+			p1 = 'o'
 			check()
 		else:
 			label_cross = Label(image=cross_, bg="white")
 			label_cross.place(x=0, y=0)
-			var_9 += 1
-			var_12 += 1
-			var_15 += 1
+			p1 = 'x'
 			check()
 
 	elif number == "2":
 		button_2.destroy()
-		button_2 = ''
 		if a % 2 == 0:
 			label_circle = Label(image=circle_, bg="white")
 			label_circle.place(x=65, y=0)
-			var_2 += 1
-			var_4 += 1
+			p2 = 'o'
 			check()
 		else:
 			label_cross = Label(image=cross_, bg="white")
 			label_cross.place(x=65, y=0)
-			var_10 += 1
-			var_12 += 1
+			p2 = 'x'
 			check()
 	elif number == "3":
 		button_3.destroy()
-		button_3 = ''
 		if a % 2 == 0:
 			label_circle = Label(image=circle_, bg="white")
 			label_circle.place(x=130, y=0)
-			var_3 += 1
-			var_4 += 1
-			var_8 += 1
+			p3 = 'o'
 			check()
 		else:
 			label_cross = Label(image=cross_, bg="white")
 			label_cross.place(x=130, y=0)
-			var_11 += 1
-			var_12 += 1
-			var_16 += 1
+			p3 = 'x'
 			check()
 	elif number == "4":
 		button_4.destroy()
-		button_4 = ''
 		if a % 2 == 0:
 			label_circle = Label(image=circle_, bg="white")
 			label_circle.place(x=0, y=60)
-			var_1 += 1
-			var_5 += 1
+			p4 = 'o'
 			check()
 		else:
 			label_cross = Label(image=cross_, bg="white")
 			label_cross.place(x=0, y=60)
-			var_9 += 1
-			var_13 += 1
+			p4 = 'x'
 			check()
 	elif number == "5":
 		button_5.destroy()
-		button_5 = ''
 		if a % 2 == 0:
 			label_circle = Label(image=circle_, bg="white")
 			label_circle.place(x=65, y=60)
-			var_2 += 1
-			var_5 += 1
-			var_7 += 1
-			var_8 += 1
+			p5 = 'o'
 			check()
 		else:
 			label_cross = Label(image=cross_, bg="white")
 			label_cross.place(x=65, y=60)
-			var_10 += 1
-			var_13 += 1
-			var_15 += 1
-			var_16 += 1
+			p5 = 'x'
 			check()
 	elif number == "6":
 		button_6.destroy()
-		button_6 = ''
 		if a % 2 == 0:
 			label_circle = Label(image=circle_, bg="white")
 			label_circle.place(x=130, y=60)			
-			var_3 += 1
-			var_5 += 1
+			p6 = 'o'
 			check()
 		else:
 			label_cross = Label(image=cross_, bg="white")
 			label_cross.place(x=130, y=60)
-			var_11 += 1
-			var_13 += 1
+			p6 = 'x'
 			check()
 	elif number == "7":
 		button_7.destroy()
-		button_7 = ''
 		if a % 2 == 0:
 			label_circle = Label(image=circle_, bg="white")
 			label_circle.place(x=0, y=120)
-			var_1 += 1
-			var_6 += 1
-			var_8 += 1
+			p7 = 'o'
 			check()
 		else:
 			label_cross = Label(image=cross_, bg="white")
 			label_cross.place(x=0, y=120)
-			var_9 += 1
-			var_14 += 1
-			var_16 += 1
+			p7 = 'x'
 			check()
 	elif number == "8":
 		button_8.destroy()
-		button_8 = ''
 		if a % 2 == 0:
 			label_circle = Label(image=circle_, bg="white")
 			label_circle.place(x=65, y=120)
-			var_2 += 1
-			var_6 += 1
+			p8 = 'o'
 			check()
 		else:
 			label_cross = Label(image=cross_, bg="white")
 			label_cross.place(x=65, y=120)
-			var_10 += 1
-			var_14 += 1
+			p8 = 'x'
 			check()
 	elif number == "9":
 		button_9.destroy()
-		button_9 = ''
 		if a % 2 == 0:
 			label_circle = Label(image=circle_, bg="white")
 			label_circle.place(x=130, y=120)
-			var_3 += 1
-			var_6 += 1
-			var_7 += 1
+			p9 = 'o'
 			check()
 		else:
 			label_cross = Label(image=cross_, bg="white")
 			label_cross.place(x=130, y=120)
-			var_11 += 1
-			var_14 += 1
-			var_15 += 1
+			p9 = 'x'
 			check()
 
 
